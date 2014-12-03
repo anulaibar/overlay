@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <style>
+
+            body {
+                color: White;
+                margin: 0;
+                padding: 0;
+                position: relative;
+            }
+
+            a {
+                color: White;
+                text-decoration: none;
+            }
+
+            .header {
+                background-color: DarkSlateBlue;
+                width: 100%;
+                height: 80px;
+                padding-top: 20px;
+                text-align: center;
+            }
+
+            .content {
+                background-color: HotPink;
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            .overlay {
+                background-color: Black;
+                opacity: .8;
+                top: 100px;
+                width: 100%;
+                height: 100%;
+                visibility: hidden;
+                overflow-y: scroll;
+                position: fixed;
+                z-index: 1;
+            }
+
+            .overlay-content {
+                position: static;
+            }
+
+        </style>
+        <script>
+            var toggleOverlay = function(e){
+                e.preventDefault();
+                var overlay = document.getElementById('overlay');
+                var body = document.getElementById('body');
+                var content = document.getElementById('content');
+
+                if(overlay.style.visibility == 'visible') {
+                    overlay.style.visibility = 'hidden';
+                    body.style.overflow = 'scroll';
+                    } else {
+                    overlay.style.visibility = 'visible';
+                    body.style.overflow = 'hidden';
+                }
+            }
+        </script>
+    </head>
+    <body id="body">
+        <div class="header" id="header">
+            <a href="#" onClick="toggleOverlay(event)">Toggle ponies</a>
+        </div>
+        <div class="overlay" id="overlay">
+            <div class="overlay-content">
+                <img src="img/pink-pony.png"/>
+                <img src="img/pink-pony.png"/>
+                <img src="img/pink-pony.png"/>
+            </div>
+        </div>
+        <div class="content" id="content">
+                <img src="img/blue-unicorn.png"/>
+        </div>
+    </body>
+</html>
